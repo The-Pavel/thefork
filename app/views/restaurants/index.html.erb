@@ -1,0 +1,19 @@
+<h1>All Restaurants</h1>
+
+<!-- <% %> tag executes the ruby code inside but doesn't display it -->
+<% current_time = Time.now %>
+<!-- <%= %> tag executes ruby code inside and displays it in HTML -->
+<p>Now is <%= current_time %><p>
+
+  <!-- The data in the view is sent from the controller as instance variables, starting with @ -->
+  <h3>You searched for <%= @category %></h3>
+  <!-- We can execute any ruby code, including .each loops -->
+  <% @restaurants.each do |id, restaurant| %>
+  <!-- for each restaurant in the @restaurants hash we create list items to display their details -->
+  <!-- each restaurant name becomes a link that goes to a single restaurant path, taking the id as the parameter for the url, i.e. clicking the first restaurant name will go to localhost:3000/restaurants/1 -->
+    <li><%= link_to restaurant[:name], restaurant_path(id) %></li>
+    <li>Location: <%= restaurant[:address] %></li>
+    <li>Category: <%= restaurant[:category].capitalize %></li>
+    <li>----------------------------------</li>
+  <% end %>
+

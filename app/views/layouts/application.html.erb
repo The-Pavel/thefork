@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <!-- application erb is the global HTML file -->
+    <!-- any view page (page_name.html.erb) will get rendered instead of the 'yield' keyword on line 17 -->
+    <h6>This is my application!</h6>
+    <!-- navbar -->
     <%= yield %>
+    <!-- footer -->
+    <h6>Done with love <3</h6>
   </body>
 </html>
